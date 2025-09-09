@@ -1,5 +1,2 @@
-com\example\trabalho_backend\repositorio\MusicaRepositorio.class
-com\example\trabalho_backend\model\Musica.class
-com\example\trabalho_backend\controller\MusicaController.class
 com\example\trabalho_backend\model\Genero.class
 com\example\trabalho_backend\TrabalhoBackendApplication.class

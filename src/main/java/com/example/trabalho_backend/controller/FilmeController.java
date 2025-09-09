@@ -1,5 +1,6 @@
 package com.example.trabalho_backend.controller;
 
+import java.util.List;
 import java.util.UUID;
 
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -14,9 +15,11 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.trabalho_backend.model.Filme;
 import com.example.trabalho_backend.repositorio.FilmeRepositorio;
 
+
 @RestController
-@RequestMapping("Filmes")
+@RequestMapping("/filmes")
 public class FilmeController {
+    
     private FilmeRepositorio FilmeRepositorio;
 
     public FilmeController(FilmeRepositorio FilmeRepositorio) {
@@ -32,9 +35,19 @@ public class FilmeController {
     }
 
     @GetMapping("/{id}")
-    public Filme obterPorId(@PathVariable("id") String id) {
+    public Filme obterPorId(@PathVariable String id) {
         return FilmeRepositorio.findById(id).orElse(null);
     }
+
+    @GetMapping
+    public List<Filme> listarTodos() {
+        return FilmeRepositorio.findAll();
+    }
+    
+    // @GetMapping("/{id}")
+    // public Filme obterPorId(@PathVariable("id") String id) {
+    //     return FilmeRepositorio.findById(id).orElse(null);
+    // }
 
     @DeleteMapping("/{id}")
     public void deletar(@PathVariable("id") String id){
